@@ -23,54 +23,54 @@
     
 }
 #rightbox{
-    background: url(steel.jpg);
+    background: url(../images/steel.jpg);
     background-size: contain;
    
     
 }
 
 #firstWrongImg{
-    background: url(firsterror.gif);
+    background: url(../images/firsterror.gif);
     background-size: contain;
 }
 
 #secondWrongImg{
-    background: url(streetfighttwo.gif);
+    background: url(../images/streetfighttwo.gif);
     background-size: contain;
 }
 
 #thirdWrongImg{
-    background: url(streetfightthree.gif);
+    background: url(../images/streetfightthree.gif);
     background-size: contain;
 }
 
 #fourthWrongImg{
-    background: url(therockfourth.gif);
+    background: url(../images/therockfourth.gif);
     background-size: contain;
 }
 
 #fifthWrongImg{
-    background: url(rockyfifth.gif);
+    background: url(../images/rockyfifth.gif);
     background-size: contain;
 }
 
 #sixthWrongImg{
-    background: url(boyzinthehoodsixth.gif);
+    background: url(../images/boyzinthehoodsixth.gif);
     background-size: contain;
 }
 
 #leftbox{
-    background: url(tvscreen.gif);
+    background: url(../images/tvscreen.gif);
     background-size: contain;
 }
 
 #winner{
-    background: url(rockycelebration-winner.gif);
+    background: url(../images/rockycelebration-winner.gif);
     background-size: contain;
 }
 
 #rightAnswer{
-    background: url(pineappleexpress-rightanswer-one.jpg);
+    background: url(../images/pineappleexpress-rightanswer-one.jpg);
     background-size: contain;
 }
 
@@ -135,6 +135,8 @@
     border: solid 20px black;
     position: fixed;
     top: 0;
+    background: url(../images/steel.jpg);
+    background-size: contain;
     
 }
 .hangmanStyle{
@@ -169,7 +171,7 @@
     top: 160px;
     padding: 0;
     width: 100%;
-    background: url(brickwallpayphone.jpg);
+    background: url(../images/brickwallpayphone.jpg);
     background-size: contain;
 }
 
