@@ -1,10 +1,11 @@
 
+var tempId = 'leftbox';
 
 var player = {
     name: "Mike",
     age: 0,
     mistakes: 5,
-    assignedWordlist: ['bad','good','ugly','from','pizza','shoes','pants'],
+    assignedWordlist: [''],
     assignedWord: '',
     assignedWordArray: [''],
     lettersAlreadyGuessed: [''],
@@ -34,13 +35,20 @@ var player = {
             this.lettersAlreadyGuessed = [''];
         };
         
-        //4.pass the assigned Word to varable temp, and increment numGamesPlayed variable 
+        //4.pass the assigned Word to varable temp, and increment numGamesPlayed variable, we use the variable temp so the next time a word is randomly assigned in step 5, we compare the two to ensure we don't assign the same word twice.
         this.temp = this.assignedWord;
         this.numGamesPlayed++;
+        alert(this.temp);
+        alert(this.temp.length);
 
         //6. for loop to assign "_" place holders to each position of the hangman array
         for (var i = 0; i < this.assignedWord.length; i++) {
-            this.hangman[i] = '_';
+            //if (this.assignedWord[i] === " "){
+                //this.hangman[i] = "-"}
+            //else {
+                //this.hangman[i] = '_';
+            //};
+            
         };
         this.hangmanString = this.hangman.join(' ');
         //7.show the hangman word variables (including underline placeholders), letters player has already guessed, enable the input text box for player to place their guesses, number of wins and losses.
@@ -60,7 +68,7 @@ var player = {
 
 
     compareWord: function (playerInput) {
-        debugger;
+        //debugger;
         //This method takes in the players guessed letter, compares it, makes updates where necessary and prints out status to the game
         //9.taken in the players guess and assign it to variable guessedLetter 
         this.guessedLetter = document.getElementById('playerInput').value;
@@ -79,6 +87,7 @@ var player = {
         //12.starting comparison; below "if" statement checks as to whether the letter our player guessed exists in his/her assigned word.  If the letter does not exist we are sent to the else statement 14.
         if (this.assignedWord.includes(this.guessedLetter) === true) {
         //13.find out which position of the assigned string (word) the player guessed letter belongs to startign at position 0
+        
             for (var i=0; i < this.assignedWord.length;i++) {
                     //13-1.if current postion i matches the same letter that player has guessed enter the if statement and proceed to 13-2; otherwise increment i and check the next character position in the array using below if statment 
                     if (this.guessedLetter === this.assignedWord.charAt(i)) {
@@ -90,9 +99,11 @@ var player = {
                         //13-4.clear any pre-existing values from the input block in HMTL
                         document.getElementById('playerInput').value='';              
                         //13-5.print the new string of correctly guessed letters and underscore place holders in HTML.
+                        debugger;
                         this.hangmanString = this.hangman.join(' ');
                         document.getElementById('hangMan').innerText = this.hangmanString;
                         this.hangmanString = this.hangman.join('');
+                        
                         //13-6.compare what's been guessed so far to see if player has won, update number of wins variable and inform player on the DOM. 
                         if (this.hangmanString === this.assignedWord){
                             document.getElementById('playerInput').disabled = true;
@@ -161,8 +172,23 @@ var player = {
     },
 };
 
-var tempId = 'leftbox';
+//This global function will assign the array of words to be guessed depending on whether the player clicked on the 80's music theme or the 80's movie theme.  the words 'pickMoviebtn' or 'pickMusicbtn' will be passed to the function as an argument and we'll use this indicator to help us decide which genra the player would like to player. 
+function assignedCategory(general){
 
-//disable the input text box, until they click the start game button
-//document.getElementById('playerInput').disabled = true;
+    player.assignedWordlist = [''];
+
+    if (general === 'pickMoviesbtn'){
+        player.assignedWordlist.push("Top Gun", "Crocodile Dundee", "Platoon", "The Karate Kid", "Star Trek", "Back to School", "Aliens", "The Golden Child", "Ruthless People", "Ferris Bueller's Day Off", "Down and Out in Beverly Hills", "The Color of Money", "Stand by Me", "Legal Eagles", "Cobra", "An American Tail", "Police Academy", "Heartbreak Ridge", "Peggy Sue Got Married", "Poltergeist", "Short Circuit", "Pretty in Pink", "The Fly", "Three Amigos", "Little Shop of Horrors", "About Last Night", "Running Scared", "The Money Pit", "Gung Ho", "Hannah and Her Sisters", "Nothing in Common", "Children of a Lesser God", "Soul Man", "Wildcats", "Heartburn", "The Morning After");
+    }
+    else {
+        player.assignedWordlist.push("That's What Friends Are For", "Say You, Say Me", "I Miss You", "On My Own", "Broken Wings", "How Will I Know", "Party All the Time", "Burning Heart", "Kyrie", "Addicted to Love", "Greatest Love of All", "Secret Lovers", "Friends & Lovers", "Glory of Love", "West End Girls", "There'll Be Sad Songs", "Alive and Kicking", "Never", "Kiss", "Higher Love", "Stuck With You", "Holding Back the Years", "Sledgehammer", "Sara", "Human", "I Can't Wait", "Take My Breath Away", "Rock Me Amadeus", "Papa Don't Preach", "You Give Love a Bad Name", "When the Going Gets Tough, The Tough Get Going", "When I Think of You", "These Dreams", "Don't Forget Me", "Live to Tell", "Mad About You", "Something About You", "Venus", "Dancing On the Ceiling", "Conga", "True Colors", "Danger Zone", "What Have You Done for Me Lately", "No One Is to Blame", "Let's Go All the Way", "I Didn't Mean to Turn You On", "Words Get In the Way", "Manic Monday", "Walk of Life", "Amanda", "Two of Hearts", "Crush On You", "If You Leave", "Invisible Touch", "The Sweetest Taboo", "What You Need", "Talk to Me", "Nasty", "Take Me Home Tonight", "We Don't Have to Take Our Clothes Off", "All Cried Out", "Your Love", "I'm Your Man", "Perfect Way", "Living In America");
+
+    };
+
+    
+    if (player.assignedWordlist[0] === ''){
+        player.assignedWordlist.shift();
+    };
+
+};
 

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>My First Object</title>
+    <title>1986 Hangman</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="assets/javascript/game.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -23,17 +23,17 @@
             <div class="col-12" >
 
                 <div class="col-12 col-md-5 col-lg-5 contBox" id="leftbox">
-                <audio id='firstWrong' src="Error-1.m4a" type'audio/mpeg'></audio>
+                <audio id='firstWrong' src="assets/images/Error-1.m4a" type'audio/mpeg'></audio>
                 
-                <audio id='secondWrong' src="Error-2.m4a" type'audio/mpeg'></audio>
+                <audio id='secondWrong' src="assets/images/Error-2.m4a" type'audio/mpeg'></audio>
                 
-                <audio id='thirdWrong' src="Error-3.m4a" type'audio/mpeg'></audio>
+                <audio id='thirdWrong' src="assets/images/Error-3.m4a" type'audio/mpeg'></audio>
                 
-                <audio id='fourthWrong' src="Error-4.m4a" type'audio/mpeg'></audio>
+                <audio id='fourthWrong' src="assets/images/Error-4.m4a" type'audio/mpeg'></audio>
                 
-                <audio id='fifthWrong' src="Error-5.m4a" type'audio/mpeg'></audio>
+                <audio id='fifthWrong' src="assets/images/Error-5.m4a" type'audio/mpeg'></audio>
                 
-                <audio id='sixthWrong' src="Finalerror.m4a" type'audio/mpeg'></audio>
+                <audio id='sixthWrong' src="assets/images/Finalerror.m4a" type'audio/mpeg'></audio>
 
                 
                 </div>
@@ -44,16 +44,16 @@
                     <!--<input type="text" class="playerInfo1" placeholder="  Enter full name..">
                     <input type="number" class="playerInfo1" placeholder="  Enter age...Please note must be 18+ to play">-->
 
-                    <button class='pickMoviesbtn' onclick="player.assigningAWord()">80's Movies</button>
-                    <button class='pickMusicbtn' onclick="player.assigningAWord()">80's Music</button>
+                    <button class='pickMoviesbtn' onclick="assignedCategory('pickMoviesbtn')">80's Movies</button>
+                    <button class='pickMusicbtn' onclick="assignedCategory('pickMusicbtn')">80's Music</button>
                     <button class='startGamebtn' onclick="player.assigningAWord()">Start Game</button>
                     
                     
                     <input  class='inputBoxStyle' id='playerInput' onkeyup="player.compareWord(document.getElementById('playerInput').value)" placeholder="  Enter your guess!">
                     
                     <p  class='hangmanStyle writeup' id='hangMan'></p>
-                    <p class='writeup' id='numberOfInfractions'></p>
                     <p class='writeup' id='guessedLetters'></p>
+                    <p class='writeup' id='numberOfInfractions'></p>
                     <p class='writeup' id='GamesPlayed '></p>
                     <p class='writeup' id='GamesWon'></p>
                     <p class='writeup' id='GamesLost'></p>
