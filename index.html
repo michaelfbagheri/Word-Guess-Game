@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <title>My First Object</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="mycode.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="myCSS.css">
+</head>
+
+
+<body>
+    <div class="headerRow ">
+        <header class="row ">
+            <div class="col-12 dreams">Party like it's 1986!</div>
+        </header>
+    </div>
+
+    <div class="continer-fluid test">
+        <div class="row cont2MainBox">
+            <div class="col-12" >
+
+                <div class="col-12 col-md-5 col-lg-5 contBox" id="leftbox">
+                <audio id='firstWrong' src="Error-1.m4a" type'audio/mpeg'></audio>
+                
+                <audio id='secondWrong' src="Error-2.m4a" type'audio/mpeg'></audio>
+                
+                <audio id='thirdWrong' src="Error-3.m4a" type'audio/mpeg'></audio>
+                
+                <audio id='fourthWrong' src="Error-4.m4a" type'audio/mpeg'></audio>
+                
+                <audio id='fifthWrong' src="Error-5.m4a" type'audio/mpeg'></audio>
+                
+                <audio id='sixthWrong' src="Finalerror.m4a" type'audio/mpeg'></audio>
+
+                
+                </div>
+
+                <div class="col-12 col-md-2 col-lg-2 placeHolderBox">placeHolderBox</div>
+                <div class="col-12 col-md-5 col-lg-5 contBox" id="rightbox">
+                    
+                    <!--<input type="text" class="playerInfo1" placeholder="  Enter full name..">
+                    <input type="number" class="playerInfo1" placeholder="  Enter age...Please note must be 18+ to play">-->
+
+                    <button class='pickMoviesbtn' onclick="player.assigningAWord()">80's Movies</button>
+                    <button class='pickMusicbtn' onclick="player.assigningAWord()">80's Music</button>
+                    <button class='startGamebtn' onclick="player.assigningAWord()">Start Game</button>
+                    
+                    
+                    <input  class='inputBoxStyle' id='playerInput' onkeyup="player.compareWord(document.getElementById('playerInput').value)" placeholder="  Enter your guess!">
+                    
+                    <p  class='hangmanStyle writeup' id='hangMan'></p>
+                    <p class='writeup' id='numberOfInfractions'></p>
+                    <p class='writeup' id='guessedLetters'></p>
+                    <p class='writeup' id='GamesPlayed '></p>
+                    <p class='writeup' id='GamesWon'></p>
+                    <p class='writeup' id='GamesLost'></p>
+                    <p class='writeup' id='youWin'></p>
+                </div>
+            </div>
+
+        </div>
+        
+    </div>
+
+
+
+    <dir class="row footerbox">
+            <dir class="col-12"></dir>
+    </dir>
+    
+
+
+</body>
+
+
+
+</html>
