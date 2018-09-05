@@ -93,6 +93,10 @@ var player = {
         //This method takes in the players guessed letter, compares it, makes updates where necessary and prints out status to the game
         //9.taken in the players guess and assign it to variable guessedLetter 
         this.guessedLetter = document.getElementById('playerInput').value;
+        //Need to eleminate accidental double input, so we'll strip away all but first character
+        this.guessedLetter = this.guessedLetter.slice(0,1);
+
+
         //9-1.make sure it's the first time this letter is beign guessed; otherwise leave function and go back so player can make another guess.
         for (var i = 0; i < this.lettersAlreadyGuessed.length; i++) {
             if (this.lettersAlreadyGuessed[i] === this.guessedLetter) {
@@ -133,11 +137,24 @@ var player = {
                         }
                     }
                     document.getElementById('hangMan').innerText = this.hangmanString;
+                    //For purpose of coparison we're removing unwanted spaces and peeing the wanted spaces in the below declared variable 
+                    var tempRemoveSpaceforCompare = this.hangman.join('')
+                     //removing the "-" placeholder from this.hangmanString
+                     for (var j = 0; j < this.hangman.length; j++) {
+                        if (tempRemoveSpaceforCompare.includes('-')) {
+                            tempRemoveSpaceforCompare = tempRemoveSpaceforCompare.replace('-', ' ');
+                        }
+                        else {
+                            j = this.hangman.length;
+                        }
+                    }
+
                     //this.hangmanString = this.hangman.join(' ');
 
                     //13-6.compare what's been guessed so far to see if player has won, update number of wins variable and inform player on the DOM.
-                    debugger;
-                    if (this.hangmanString === this.assignedWord) {
+                    //debugger;
+                    
+                    if (tempRemoveSpaceforCompare === this.assignedWord) {
                         document.getElementById('playerInput').disabled = true;
                         this.NumOfWins++;
                         document.getElementById(tempId).setAttribute('id', 'winner');
