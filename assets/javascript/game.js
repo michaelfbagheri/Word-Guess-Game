@@ -38,8 +38,7 @@ var player = {
         //4.pass the assigned Word to varable temp, and increment numGamesPlayed variable, we use the variable temp so the next time a word is randomly assigned in step 5, we compare the two to ensure we don't assign the same word twice.
         this.temp = this.assignedWord;
         this.numGamesPlayed++;
-        alert(this.temp);
-        alert(this.temp.length);
+     
 
         //6. for loop to assign "_" place holders to each position of the hangman array
         for (var i = 0; i < this.assignedWord.length; i++) {
@@ -84,19 +83,12 @@ var player = {
 
 
 
-
-
-
-
-
     compareWord: function (playerInput) {
         //This method takes in the players guessed letter, compares it, makes updates where necessary and prints out status to the game
         //9.taken in the players guess and assign it to variable guessedLetter 
         this.guessedLetter = document.getElementById('playerInput').value;
         //Need to eleminate accidental double input, so we'll strip away all but first character
         this.guessedLetter = this.guessedLetter.slice(0,1);
-
-
         //9-1.make sure it's the first time this letter is beign guessed; otherwise leave function and go back so player can make another guess.
         for (var i = 0; i < this.lettersAlreadyGuessed.length; i++) {
             if (this.lettersAlreadyGuessed[i] === this.guessedLetter) {
@@ -117,6 +109,7 @@ var player = {
             for (var i = 0; i < this.assignedWord.length; i++) {                    
                 //13-1.if current postion i matches the same letter that player has guessed enter the if statement and proceed to 13-2; otherwise increment i and check the next character position in the array using below if statment 
                 if (this.guessedLetter === w.charAt(i)) {
+                    document.getElementById('rightansweraudio').play();
                     document.getElementById(tempId).setAttribute('id', 'rightAnswer')
                     tempId = 'rightAnswer';
                     //13-2. assign the guessed letter from assignedWord position i to the hangman array  position i
@@ -155,6 +148,7 @@ var player = {
                     //debugger;
                     
                     if (tempRemoveSpaceforCompare === this.assignedWord) {
+                        document.getElementById('winneraudio').play();
                         document.getElementById('playerInput').disabled = true;
                         this.NumOfWins++;
                         document.getElementById(tempId).setAttribute('id', 'winner');
@@ -201,7 +195,7 @@ var player = {
             if (this.mistakes < 0) {
                 document.getElementById('sixthWrong').play();
                 document.getElementById(tempId).setAttribute('id', 'sixthWrongImg');
-                this.temp = 'leftbox';
+                tempId = 'leftbox';
                 document.getElementById('playerInput').value = '';
                 this.NumOfLosses++;
                 document.getElementById('GamesLost').innerText = "losses: " + this.NumOfLosses;
